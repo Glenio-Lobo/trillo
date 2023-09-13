@@ -1,0 +1,14 @@
+/* Basic Reset */
+
+*,
+*::after,
+*::before {
+    /* Reseta o padding e margin normais do elemento para zero*/
+    padding: 0;
+    margin: 0;
+
+    /* Box sizing faz com que o padding e border  não sejam adicionadas a altura e largura total. */
+    box-sizing: inherit;
+}
+
+/* End of Basic Reset */
