@@ -1,0 +1,7 @@
+.container {
+    max-width: var(--container-max-width);
+    min-height: var(--container-min-height);
+    margin: 8rem auto;
+    background-color: var(--color-grey-light-1);
+    box-shadow: var(--shadow-dark);
+}
