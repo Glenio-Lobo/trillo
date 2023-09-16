@@ -53,6 +53,35 @@ $grey-dark-3: #999;
   --shadow-dark: 0 2rem 6rem rgba(0,0,0, .3);
 }
 
+@keyframes pulsate {
+  0% {
+    transform: scale(1);
+    box-shadow: none;
+  }
+  50% {
+    transform: scale(1.05);
+    box-shadow: 0 1rem 4rem rgba(0, 0, 0, 0.25);
+  }
+  100% {
+    transform: scale(1);
+    box-shadow: none;
+  }
+}
+body {
+  font-family: "Open Sans", sans-serif;
+  font-weight: 400;
+  line-height: 1.6;
+  color: var(--color-grey-dark-2);
+}
+
+.overview__heading {
+  font-size: 2.25rem;
+  font-weight: 300;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  padding: 1.5rem 3rem;
+}
+
 /* Basic Reset */
 *,
 *::after,
@@ -71,14 +100,29 @@ html {
 }
 
 body {
-  font-family: "Open Sans", sans-serif;
-  font-weight: 400;
-  line-height: 1.6;
   background-image: linear-gradient(to right bottom, var(--color-primary-light), var(--color-primary-dark));
   background-size: cover;
   background-repeat: no-repeat;
-  color: var(--color-grey-dark-2);
   min-height: 100vh;
+}
+
+.btn-inline {
+  display: inline-block;
+  border: none;
+  color: var(--color-primary);
+  border-bottom: 1px solid currentColor;
+  padding: 2px;
+  background-color: transparent;
+  font-size: inherit;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+.btn-inline:hover {
+  color: var(--color-grey-dark-1);
+}
+.btn-inline:focus {
+  outline: none;
+  animation: pulsate 1s infinite;
 }
 
 .header {
@@ -264,6 +308,60 @@ body {
 
 .content {
   display: flex;
+}
+
+.gallery {
+  display: flex;
+}
+.gallery__photo {
+  width: 100%;
+  display: block;
+}
+
+.overview {
+  display: flex;
+  align-items: center;
+  border-bottom: 1px solid var(--color-grey-light-2);
+}
+.overview__stars {
+  margin-right: auto;
+  /* 
+  SVG vem, assim como texto, com uma line height e um espaço padrão, para remover usa-se
+  flex ou line-height:0; font-size:0
+   */
+  line-height: 0;
+  font-size: 0;
+}
+.overview__icon-location {
+  margin-right: 0.5rem;
+}
+.overview__icon-star, .overview__icon-location {
+  width: 1.75rem;
+  height: 1.75rem;
+  fill: var(--color-primary);
+}
+.overview__location {
+  font-size: 1.2rem;
+  display: flex;
+  align-items: center;
+}
+.overview__rating {
+  background-color: var(--color-primary);
+  color: var(--color-white);
+  margin-left: 3rem;
+  padding: 0 2.25rem;
+  align-self: stretch;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+.overview__rating-average {
+  font-size: 2.25rem;
+}
+.overview__rating-count {
+  font-size: 0.8rem;
+  text-transform: uppercase;
 }
 
 /*# sourceMappingURL=style.css.map */
