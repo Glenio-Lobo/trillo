@@ -14,7 +14,17 @@
     }
 
     &:focus{
+        color: var(--color-grey-dark-1);
         outline: none;
         animation: pulsate 1s infinite;
+    }
+
+    & span {
+        margin-left: 3px;
+        transition: margin-left .2s;
+    }
+
+    &:hover span{
+        margin-left: 8px;
     }
 }
