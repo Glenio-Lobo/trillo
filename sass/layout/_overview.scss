@@ -1,3 +1,5 @@
+@use '../abstracts/mixins' as mixins;
+
 .overview{
     display: flex;
     align-items: center;
@@ -45,14 +47,27 @@
         flex-direction: column;
         align-items: center;
         justify-content: center;
+
+        @include mixins.responsive(bp-small){
+            padding: 0 1.5rem;
+        }
     }
 
     &__rating-average{
         font-size: 2.25rem;
+
+        @include mixins.responsive(bp-small){
+            font-size: 1.8rem;
+        }
     }
 
     &__rating-count{
         font-size: .8rem;
         text-transform: uppercase;
+
+        
+        @include mixins.responsive(bp-small){
+            font-size: .5rem;
+        }
     }
 }

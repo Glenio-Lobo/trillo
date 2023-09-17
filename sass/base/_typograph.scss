@@ -1,4 +1,6 @@
 // Overwall Typograph
+@use '../abstracts/mixins' as mixins;
+
 body{
     font-family: 'Open Sans', sans-serif;
     font-weight: 400;
@@ -13,6 +15,11 @@ body{
     text-transform: uppercase;
     letter-spacing: 1px;
     padding: 1.5rem 3rem;
+
+    @include mixins.responsive(bp-small){
+        font-size: 1.8rem;
+        padding: 1.25rem 2rem;
+    }
 }
 
 .paragraph{

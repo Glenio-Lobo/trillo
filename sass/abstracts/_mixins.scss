@@ -1,0 +1,45 @@
+// MEDIA QUERY MANAGER
+/*
+
+Size        |    Device
+------------|--------------
+0-600px     |    Phone
+600-900px   |    Tablet Portrait
+900-1200px  |    Table Landscape
+1200-1800px |    Normal Styles
+1800px+     |    Big Screens
+
+*/
+
+/*
+$breakpoint argument choices:
+-phone
+-tab-port
+-tab-land
+-big-desktop
+
+1em = 16px
+*/
+
+@mixin responsive($breakpoint){
+    // Media queries não são afetadas pelas mudanças do font size, ou seja, sempre será 16px a não ser que o browser mude.
+    @if $breakpoint == bp-smallest {
+        @media only screen and (max-width: 31.25em) { @content }; // 500px
+    }
+
+    @if $breakpoint == bp-small {
+        @media only screen and (max-width: 37.5em) { @content }; // 600px
+    }
+
+    @if $breakpoint == bp-medium {
+        @media only screen and (max-width: 56.25em) { @content }; // 900px
+    }
+
+    @if $breakpoint == bp-large {
+        @media only screen and (max-width: 68.75em) { @content }; // 1100px
+    }
+
+    @if $breakpoint == bp-largest {
+        @media only screen and (max-width: 75em) { @content }; // 1200px
+    }
+}

@@ -1,9 +1,19 @@
+@use '../abstracts/mixins' as mixins;
+
 .detail{
     font-size: 1.4rem;
     display: flex;
     padding: 4.5rem;
     background-color: var(--color-grey-light-1);
     border-bottom: var(--line);
+
+    @include mixins.responsive(bp-medium){
+        padding: 3rem;
+    }
+
+    @include mixins.responsive(bp-small){
+        flex-direction: column;
+    }
 }
 
 // Description Section Styles
@@ -17,6 +27,16 @@
     &__list{
         margin: 3rem 0;
         padding: 3rem 0;
+    }
+
+    @include mixins.responsive(bp-medium){
+        margin-right: 3rem;
+        padding: 2rem;
+    }
+
+    @include mixins.responsive(bp-small){
+        margin-right: 0;
+        margin-bottom: 3rem;
     }
 }
 
