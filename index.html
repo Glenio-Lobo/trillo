@@ -4,7 +4,7 @@
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         
-        <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,500,600,700,800" rel="stylesheet">
         <link rel="stylesheet" href="css/style.css">
         <link rel="shortcut icon" type="image/png" href="img/favicon.png">
         
@@ -32,16 +32,122 @@
                         <span class="user-nav__notification">7</span>
                     </div>
     
-                    <div class="user-nav__icon-box">
+                    <div class="user-nav__icon-box user-nav__icon-box--chat">
                         <svg class="user-nav__icon">
                             <use xlink:href="img/sprite.svg#icon-chat">
                         </svg>
                         <span class="user-nav__notification">13</span>
+
+                        <div class="message-box menu">
+                            <ul class="message-box__list menu__List">
+                                <li class="message-box__message menu__item">
+                                    <img src="img/user-2.jpg" alt="User that you're chatting with" class="message-box__photo">
+
+                                    <div class="message-box__information">
+                                        <div class="message-box__user-details">
+                                            <h3 class="message-box__username">Mary Thomas</h3>
+                                            <span class="message-box__date">13 April 2023</span>
+                                        </div>
+                                        
+                                        <p class="message-box__text">
+                                            Lorem ipsum, dolor sit amet consectetur adipisicing elit. Veritatis ab, vel temporibus iste tempore possimus eum asperiores iure accusamus saepe optio, labore nihil illum! Vero facilis expedita ducimus neque dolorum.
+                                        </p>
+                                    </div>
+
+                                </li>
+
+                                <li class="message-box__message menu__item">
+                                    <img src="img/user-2.jpg" alt="User that you're chatting with" class="message-box__photo">
+
+                                    <div class="message-box__information">
+                                        <div class="message-box__user-details">
+                                            <h3 class="message-box__username">Mary Thomas</h3>
+                                            <span class="message-box__date">13 April 2023</span>
+                                        </div>
+                                        
+                                        <p class="message-box__text">
+                                            Lorem ipsum, dolor sit amet consectetur adipisicing elit. Veritatis ab, vel temporibus iste tempore possimus eum asperiores iure accusamus saepe optio, labore nihil illum! Vero facilis expedita ducimus neque dolorum.
+                                        </p>
+                                    </div>
+
+                                </li>
+                            </ul>
+                        </div>
                     </div>
     
                     <div class="user-nav__user">
                         <img src="img/user.jpg" alt="User portrait image" class="user-nav__photo">
                         <span class="user-nav__username">Jonas</span>
+
+                        <div class="usermenu menu">
+                            <div class="usermenu__user-box menu__item">
+                                <img src="img/user.jpg" alt="User Portrait Image on The menu" class="usermenu__photo">
+
+                                <div class="usermenu__user-information">
+                                    <span class="usermenu__username">Jonas</span>
+                                    <span class="usermenu__email">jonas-teste@usermenu.com</span>
+                                </div>
+                            </div>
+
+                            <ul class="usermenu__list menu__list">
+                                <li class="usermenu__item menu__item">
+                                    <a href="#" class="usermenu__option">
+                                        <svg class="usermenu__icon">
+                                            <use xlink:href="img/sprite.svg#icon-user1">
+                                        </svg>
+                                        <span>Public Profile</span>
+                                    </a>
+
+                                    <a href="#" class="usermenu__option">
+                                        <svg class="usermenu__icon">
+                                            <use xlink:href="img/sprite.svg#icon-edit">
+                                        </svg>
+                                        <span>Edit Profile</span>
+                                    </a>
+
+                                    <a href="#" class="usermenu__option">
+                                        <svg class="usermenu__icon">
+                                            <use xlink:href="img/sprite.svg#icon-cog">
+                                        </svg>
+                                        <span>Configuration</span>
+                                    </a>
+                                </li>
+
+                                <li class="usermenu__item menu__item">
+                                    <a href="#" class="usermenu__option">
+                                        <svg class="usermenu__icon">
+                                            <use xlink:href="img/sprite.svg#icon-notification">
+                                        </svg>
+                                        <span>Notifications</span>
+                                        <p class="usermenu__notification-count">10</p>
+                                    </a>
+
+                                    <a href="#" class="usermenu__option">
+                                        <svg class="usermenu__icon">
+                                            <use xlink:href="img/sprite.svg#icon-globe">
+                                        </svg>
+                                        <span>Language</span>
+                                        <p class="usermenu__language-choosen">English</p>
+                                    </a>
+                                </li>
+
+                                <li class="usermenu__item menu__item">
+                                    <a href="#" class="usermenu__option">
+                                        <svg class="usermenu__icon">
+                                            <use xlink:href="img/sprite.svg#icon-info-with-circle">
+                                        </svg>
+                                        <span>Help</span>
+                                    </a>
+
+                                    <a href="#" class="usermenu__option">
+                                        <svg class="usermenu__icon">
+                                            <use xlink:href="img/sprite.svg#icon-log-out">
+                                        </svg>
+                                        <span>Log Out</span>
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
                     </div>
                 </nav>
             </header>

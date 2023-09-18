@@ -1,0 +1,27 @@
+.menu{
+    position: absolute;
+    top: 100%;
+    right: 0%;
+    min-width: 25rem;
+    z-index: 1000;
+    background-color: var(--color-white);
+    border-radius: 10px;
+    margin-top: 1px;
+    display: none;
+    
+    animation: growing .3s cubic-bezier(.28,.22,.69,.92) forwards;
+
+    &__list{
+        li{
+            display: flex;
+            flex-direction: column;
+        }
+    }
+    
+    &__item{
+        &:not(:last-child){
+            border-bottom: var(--line);
+        }
+    }
+
+}
