@@ -3,7 +3,8 @@
 html {
     font-size: 62.5%; // 1rem = 10px
     box-sizing: border-box;
-
+    -webkit-tap-highlight-color: transparent;
+    
     @include mixins.responsive(bp-large){
         font-size: 50%; // 1rem = 8px
 

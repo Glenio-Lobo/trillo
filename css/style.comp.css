@@ -89,6 +89,16 @@ $grey-dark-3: #999;
     box-shadow: none;
   }
 }
+@keyframes growing {
+  0% {
+    opacity: 0;
+    transform: scale(0.9);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
 body {
   font-family: "Open Sans", sans-serif;
   font-weight: 400;
@@ -107,6 +117,12 @@ body {
   .overview__heading {
     font-size: 1.8rem;
     padding: 1.25rem 2rem;
+  }
+}
+@media only screen and (max-width: 28.125em) {
+  .overview__heading {
+    font-size: 1.5rem;
+    padding: 1.25rem 1rem;
   }
 }
 
@@ -136,6 +152,7 @@ body {
 html {
   font-size: 62.5%;
   box-sizing: border-box;
+  -webkit-tap-highlight-color: transparent;
 }
 @media only screen and (max-width: 68.75em) {
   html {
@@ -312,26 +329,24 @@ body {
   z-index: 1;
 }
 
-.header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  height: 7rem;
-  font-size: 1.4rem;
+.menu {
+  position: absolute;
+  top: 100%;
+  right: 0%;
+  z-index: 1000;
   background-color: var(--color-white);
+  border-radius: 10px;
+  margin-top: 1px;
+  display: none;
+  animation: growing 0.3s cubic-bezier(0.28, 0.22, 0.69, 0.92) forwards;
+  overflow: hidden;
+}
+.menu__list li {
+  display: flex;
+  flex-direction: column;
+}
+.menu__item:not(:last-child) {
   border-bottom: var(--line);
-}
-@media only screen and (max-width: 31.25em) {
-  .header {
-    flex-wrap: wrap;
-    align-content: space-around;
-    height: 11rem;
-  }
-}
-
-.logo {
-  height: 3.25rem;
-  margin-left: 2rem;
 }
 
 .search {
@@ -339,12 +354,13 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
+  position: relative;
 }
 @media only screen and (max-width: 31.25em) {
   .search {
     order: 1;
     flex: 0 0 100%;
-    margin: 2rem 0;
+    margin: -2rem 0;
     background-color: var(--color-grey-light-2);
   }
 }
@@ -389,6 +405,66 @@ body {
   fill: var(--color-grey-dark-3);
 }
 
+.suggestions {
+  position: absolute;
+  top: 100%;
+  left: 3%;
+  list-style: none;
+  width: 96%;
+  max-height: 40rem;
+  background-color: var(--color-white);
+  padding: 0.5rem 0;
+  border: 1px solid var(--color-grey-light-2);
+  border-radius: 4px;
+  margin-top: 2px;
+  z-index: 10000;
+  overflow: hidden;
+  overflow-y: scroll;
+  transform: scaleY(0);
+  transform-origin: top;
+  transition: all 0.15s 0.3s cubic-bezier(0, 0, 0.38, 0.9);
+}
+.suggestions__item {
+  padding: 1rem 3rem;
+  transition: background-color 0.2s;
+}
+.suggestions__item:not(:last-child) {
+  border-bottom: var(--line);
+}
+.suggestions__item:hover {
+  background-color: var(--color-grey-light-2);
+}
+.suggestions__link:link, .suggestions__link:visited {
+  text-decoration: none;
+  color: inherit;
+}
+
+.search__input:focus + .suggestions {
+  transform: scaleY(1);
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 7rem;
+  font-size: 1.4rem;
+  background-color: var(--color-white);
+  border-bottom: var(--line);
+}
+@media only screen and (max-width: 31.25em) {
+  .header {
+    flex-wrap: wrap;
+    align-content: space-around;
+    height: 11rem;
+  }
+}
+
+.logo {
+  height: 3.25rem;
+  margin-left: 2rem;
+}
+
 .user-nav {
   align-self: stretch;
   display: flex;
@@ -404,8 +480,11 @@ body {
 .user-nav > *:hover {
   background-color: var(--color-grey-light-2);
 }
-.user-nav__icon-box {
+.user-nav__icon-box, .user-nav__user {
   position: relative;
+}
+.user-nav__user:hover > .menu, .user-nav__icon-box--chat:hover > .menu {
+  display: inline-block;
 }
 .user-nav__icon {
   height: 2.25rem;
@@ -520,7 +599,7 @@ body {
 @media only screen and (max-width: 37.5em) {
   .side-nav__link:link, .side-nav__link:visited {
     flex-direction: column;
-    paddin: 1.5rem 0.5rem;
+    padding: 1.5rem 0.5rem;
   }
 }
 .side-nav__icon {
@@ -717,6 +796,127 @@ body {
   .cta {
     padding: 2.5rem 0;
   }
+}
+
+.usermenu__user-box {
+  display: flex;
+  align-items: center;
+  padding: 2.5rem 5rem;
+}
+.usermenu__photo {
+  height: 7rem;
+  border-radius: 50%;
+}
+.usermenu__user-information {
+  margin-left: 0.8rem;
+}
+.usermenu__username, .usermenu__email {
+  display: block;
+}
+.usermenu__username {
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  margin-bottom: 0.5px;
+  line-height: 1.3;
+}
+.usermenu__email {
+  font-size: 1rem;
+  color: var(--color-grey-dark-3);
+  white-space: nowrap;
+}
+.usermenu__item {
+  padding: 1.5rem 0;
+}
+.usermenu__option:link, .usermenu__option:visited {
+  display: flex;
+  color: inherit;
+  align-items: center;
+  text-decoration: none;
+  padding: 1.2rem 5rem;
+  font-size: 1.5rem;
+  font-weight: 500;
+}
+.usermenu__option:hover, .usermenu__option:active {
+  background-color: var(--color-grey-light-2);
+  outline: none;
+}
+.usermenu__option P {
+  margin-left: auto;
+}
+.usermenu__language-choosen {
+  font-weight: 600;
+}
+.usermenu__notification-count {
+  font-size: 1.2rem;
+  background-color: var(--color-primary);
+  border-radius: 50%;
+  color: white;
+  padding: 3px 5px;
+}
+.usermenu__icon {
+  height: 2.15rem;
+  width: 2.15rem;
+  margin-right: 8px;
+  fill: var(--color-primary);
+}
+
+.message-box {
+  max-height: 40rem;
+  overflow-y: scroll;
+}
+@media only screen and (max-width: 28.125em) {
+  .message-box {
+    right: -150%;
+  }
+}
+.message-box__list {
+  max-width: 40rem;
+}
+@media only screen and (max-width: 28.125em) {
+  .message-box__list {
+    max-width: 35rem;
+  }
+}
+.message-box__item {
+  padding: 2rem 3rem;
+  display: flex;
+  align-items: center;
+}
+@media only screen and (max-width: 28.125em) {
+  .message-box__item {
+    padding: 2rem 2rem;
+  }
+}
+.message-box__item:hover {
+  background-color: var(--color-grey-light-2);
+  overflow: hidden;
+}
+.message-box__photo {
+  height: 6rem;
+  border-radius: 50%;
+  margin-right: 2rem;
+}
+.message-box__information {
+  flex: 1;
+  overflow: hidden;
+}
+.message-box__user-details {
+  display: flex;
+}
+.message-box__username {
+  font-size: 1.5rem;
+  margin-right: auto;
+}
+.message-box__date, .message-box__message {
+  color: var(--color-grey-dark-3);
+}
+.message-box__message {
+  display: inline-block;
+  width: 100%;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
 }
 
 /*# sourceMappingURL=style.comp.css.map */

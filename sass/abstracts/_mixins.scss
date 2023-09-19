@@ -23,6 +23,11 @@ $breakpoint argument choices:
 
 @mixin responsive($breakpoint){
     // Media queries não são afetadas pelas mudanças do font size, ou seja, sempre será 16px a não ser que o browser mude.
+
+    @if $breakpoint == bp-tiny {
+        @media only screen and (max-width: 28.125em) { @content }; // 450px
+    }
+
     @if $breakpoint == bp-smallest {
         @media only screen and (max-width: 31.25em) { @content }; // 500px
     }

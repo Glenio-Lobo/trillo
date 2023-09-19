@@ -1,36 +1,66 @@
+@use '../abstracts/mixins' as mixins;
+
 .message-box{
+    max-height: 40rem;
+    overflow-y: scroll;
 
-    &__list{
-
+    @include mixins.responsive(bp-tiny){
+        right: -150%;
     }
 
-    
-    &__message{
-        padding: 2rem 5rem;
+    &__list{
+        max-width: 40rem;
+
+        @include mixins.responsive(bp-tiny){
+            max-width: 35rem;
+        }
+    }
+
+    &__item{
+        padding: 2rem 3rem;
         display: flex;
+        align-items: center;
+
+        @include mixins.responsive(bp-tiny){
+            padding: 2rem 2rem;
+        }
+
+        &:hover{
+            background-color: var(--color-grey-light-2);
+            overflow: hidden;
+        }
     }
     
     &__photo{
-
+        height: 6rem;
+        border-radius: 50%;
+        margin-right: 2rem;
     }
 
-    &__user-information{
-
+    &__information{
+        flex: 1;
+        overflow: hidden;
     }
 
-    &__user-information{
-
+    &__user-details{
+        display: flex;
     }
 
     &__username{
-
+        font-size: 1.5rem;
+        margin-right: auto;
     }
 
-    &__date{
-
+    &__date,
+    &__message{
+        color: var(--color-grey-dark-3);
     }
 
-    &__text{
-
+    &__message{
+        display: inline-block;
+        width: 100%;
+        overflow: hidden;
+        white-space: nowrap;
+        text-overflow: ellipsis;
     }
 }

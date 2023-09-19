@@ -20,6 +20,11 @@ body{
         font-size: 1.8rem;
         padding: 1.25rem 2rem;
     }
+
+    @include mixins.responsive(bp-tiny){
+        font-size: 1.5rem;
+        padding: 1.25rem 1rem;
+    }
 }
 
 .paragraph{
